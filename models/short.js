@@ -6,11 +6,12 @@ client.on("error", function(error){
 });
 
 function generate_short(input, callback){
-    console.log("input: ", input.toString());
-    let reg = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
-    if(reg.test(input.toString())){
+    let url = input.toString();
+    console.log("input: ", url);
+    let reg = /(http(s)?):\/\/[(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+    if(reg.test(url)){
         console.log("url correct.");
-        client.get(input.toString(), function(err, result){
+        client.get(url, function(err, result){
             let random = null;
             if(err){
                 console.log(err);
