@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action="/", method='post')
+    input(type="text", name="url_input")
+    input(type="submit", value="create short!")
+  p #{result}
+  p #{url}
