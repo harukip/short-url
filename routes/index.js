@@ -9,8 +9,9 @@ router.get('/', function(req, res, next) {
 
 /* POST */
 router.post('/', function(req, res, next){
-  let url = short(req.body.url_input.text);
-  res.render('index', {title: 'Short-url', result: 'short-url created:', url: 'http://yu.hao/'+url});
+  short(req.param('url_input', null), function(url){
+    res.render('index', {title: 'Short-url', result: 'short-url created:', url: 'http://localhost:3000/r/'+url});
+  });
 });
 
 module.exports = router;
